@@ -11,7 +11,7 @@ export function Hero() {
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-accent-line bg-brand-accent-dim px-3 py-[5px] font-mono text-[11.5px] tracking-[0.14em] text-brand-accent uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-accent motion-safe:animate-pulse" />
-            Open to new grad roles, May 2026
+            Systems Engineer at Develcomp
           </div>
 
           <h1 className="mb-[1.1rem] text-[2.6rem] leading-[1.05] font-semibold tracking-tight text-foreground md:text-[4.1rem]">

@@ -12,7 +12,8 @@ export function Projects() {
             Selected Work
           </h2>
           <p className="text-[0.95rem] leading-[1.7] text-muted-foreground">
-            Seven projects spanning computer vision, systems programming, and mobile development.
+            Eight projects spanning computer vision, systems programming, web, and mobile
+            development.
           </p>
         </Reveal>
 
@@ -118,7 +119,26 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-6">
+          <Reveal className="col-span-12 md:col-span-4">
+            <ProjectCard texture>
+              <CardTag>
+                Web, client work <StatusBadge status="active" />
+              </CardTag>
+              <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">develcomp.com</h3>
+              <p className="mb-4 text-[0.9rem] leading-[1.65] text-muted-foreground">
+                Marketing site for an IT and telecommunications company, designed and built from
+                scratch and shipped to production.
+              </p>
+              <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                <Tag>HTML/CSS</Tag>
+                <Tag>JavaScript</Tag>
+                <Tag>ES Modules</Tag>
+              </div>
+              <CardLink href="https://develcomp.com">Visit site</CardLink>
+            </ProjectCard>
+          </Reveal>
+
+          <Reveal className="col-span-12 md:col-span-4">
             <ProjectCard>
               <CardTag>Tooling, Discord bot</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">Q-bert</h3>
@@ -135,7 +155,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-6">
+          <Reveal className="col-span-12 md:col-span-4">
             <ProjectCard>
               <CardTag>Accessibility, NLP</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">

@@ -2,20 +2,42 @@ import { Reveal } from "@/components/reveal"
 
 const EXPERIENCE = [
   {
-    role: "Network Infrastructure Intern",
+    role: "Systems Engineer",
     company: "Develcomp",
-    date: "May - Sep 2024",
+    date: "May 2026 - Present",
     location: "San Pedro Sula, Honduras",
     bullets: [
-      "Configured and maintained routers, switches, and firewalls across multiple locations.",
-      "Supported VPN and data-protection controls, contributing to security compliance posture.",
-      "Earned Ruijie Specialist Engineer certification in network configuration and management.",
+      "Lead end-to-end network deployments and complex troubleshooting engagements across client sites.",
+      "Oversee network configuration, IPTV/camera system maintenance, and SAP Business One operations simultaneously across multiple clients.",
+      "Serve as a technical resource for junior staff on TCP/IP, firewall policy, VPN architecture, and ERP workflows.",
+    ],
+  },
+  {
+    role: "Freelance Web Developer",
+    company: "Independent",
+    date: "2026 - Present",
+    location: "Remote",
+    bullets: [
+      "Design and build production websites for business clients, end to end: design, development, and deployment.",
+      "Shipped develcomp.com, the marketing site for an IT and telecommunications company.",
+    ],
+  },
+  {
+    role: "Engineering Intern (4 summers)",
+    company: "Develcomp",
+    date: "Summers 2022 - 2025",
+    location: "San Pedro Sula, Honduras",
+    bullets: [
+      "Progressed from AV/IPTV systems (2022) to SAP Business One ERP administration (2023) to network infrastructure (2024-2025).",
+      "Contributed to a 350-node network deployment for a large-scale call center: structured cabling, hardware procurement, rack setup, and full ISP/WAN connectivity.",
+      "Enforced firewall rules, VPN tunnels, and access-control policies to meet security compliance requirements.",
+      "Earned Ruijie Specialist Engineer certification (June 2024) in enterprise network configuration and management.",
     ],
   },
   {
     role: "Vice-President & President",
     company: "Student Org. for Athletic Relations (SOAR), ORU",
-    date: "Aug 2024 - Present",
+    date: "Aug 2024 - May 2026",
     location: "Tulsa, OK",
     bullets: [
       "Led event logistics and volunteer coordination for campus-wide athletic events.",

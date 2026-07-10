@@ -9,7 +9,7 @@ export function Contact() {
     <section id="contact" className="py-16 text-center md:py-24">
       <Reveal className="mx-auto max-w-[720px] px-5 md:px-10">
         <h2 className="mb-7 text-[1.8rem] leading-[1.2] font-semibold text-foreground md:text-[2.6rem]">
-          Open to ML and computer vision roles starting May 2026.
+          Let&apos;s build something together.
         </h2>
 
         <a
@@ -37,6 +37,13 @@ export function Contact() {
             github.com/drome05
           </a>
           <a
+            href="tel:+50431802458"
+            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
+          >
+            <Phone className="h-4 w-4" strokeWidth={1.75} />
+            +504 3180-2458
+          </a>
+          <a
             href="tel:+15395254337"
             className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
           >
@@ -45,7 +52,7 @@ export function Contact() {
           </a>
           <span className="flex items-center gap-2 text-[13.5px] text-muted-foreground">
             <MapPin className="h-4 w-4" strokeWidth={1.75} />
-            Tulsa, OK, open to relocation
+            San Pedro Sula, Honduras
           </span>
         </div>
       </Reveal>

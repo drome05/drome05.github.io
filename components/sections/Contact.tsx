@@ -32,7 +32,7 @@ export function Contact() {
         <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
           <a
             href="mailto:diromerop@gmail.com"
-            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
+            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-[color,transform] duration-200 hover:text-brand-accent motion-safe:hover:-translate-y-0.5"
           >
             <Mail className="h-4 w-4" strokeWidth={1.75} />
             diromerop@gmail.com
@@ -41,21 +41,21 @@ export function Contact() {
             href="https://github.com/drome05"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
+            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-[color,transform] duration-200 hover:text-brand-accent motion-safe:hover:-translate-y-0.5"
           >
             <GithubIcon className="h-4 w-4" />
             github.com/drome05
           </a>
           <a
             href="tel:+50431802458"
-            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
+            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-[color,transform] duration-200 hover:text-brand-accent motion-safe:hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4" strokeWidth={1.75} />
             +504 3180-2458
           </a>
           <a
             href="tel:+15395254337"
-            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-colors hover:text-brand-accent"
+            className="flex items-center gap-2 text-[13.5px] text-muted-foreground transition-[color,transform] duration-200 hover:text-brand-accent motion-safe:hover:-translate-y-0.5"
           >
             <Phone className="h-4 w-4" strokeWidth={1.75} />
             +1 539-525-4337

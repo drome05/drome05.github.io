@@ -19,8 +19,8 @@ export function Reveal({
       ref={ref}
       style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}
       className={cn(
-        "transition-[opacity,transform] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+        "transition-[opacity,transform] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+        isVisible ? "scale-100 opacity-100 translate-y-0" : "scale-[0.96] opacity-0 translate-y-7",
         className,
       )}
     >

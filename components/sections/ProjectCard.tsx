@@ -29,7 +29,7 @@ export function ProjectCard({
       ref={ref}
       onPointerMove={handlePointerMove}
       className={cn(
-        "spotlight-card flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-[border-color,transform] duration-250 hover:-translate-y-0.5 hover:border-brand-accent-line",
+        "spotlight-card flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-[border-color,transform] duration-250 motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.012] hover:border-brand-accent-line",
         texture && "card-texture",
         live && "card-live",
         className,

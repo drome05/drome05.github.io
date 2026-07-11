@@ -13,7 +13,7 @@ export function TechChip({ item, className }: { item: TechItem; className?: stri
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card py-1.5 pr-3.5 pl-1.5 transition-colors hover:border-brand-accent-line",
+        "inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card py-1.5 pr-3.5 pl-1.5 transition-[border-color,transform] duration-200 hover:border-brand-accent-line motion-safe:hover:scale-105",
         className,
       )}
     >

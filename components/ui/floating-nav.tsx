@@ -35,12 +35,18 @@ export function FloatingNav({ className, variant = "floating-bottom" }: Floating
     <motion.nav
       initial={reduceMotion ? false : { y: variant === "floating-bottom" ? 24 : -12, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
+      whileHover={variant === "inline" && !reduceMotion ? { scale: 1.02 } : undefined}
       transition={{ type: "spring", stiffness: 300, damping: 26 }}
       role="navigation"
       aria-label="Section navigation"
       className={cn(
-        "flex h-[52px] items-center space-x-1 rounded-full border border-border bg-card p-2 shadow-xl",
-        variant === "floating-bottom" && "fixed inset-x-0 bottom-4 z-[90] mx-auto w-fit",
+        "flex h-[52px] items-center space-x-1 rounded-full p-2 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
+        variant === "floating-bottom" &&
+          "fixed inset-x-0 bottom-4 z-[90] mx-auto w-fit border border-border bg-card shadow-xl",
+        // Desktop: just an outline at rest, so the page (not the nav) is what
+        // draws the eye — the fill only appears on hover, as a "reveal".
+        variant === "inline" &&
+          "border border-border/60 bg-transparent shadow-none hover:border-brand-accent-line hover:bg-card/95 hover:shadow-xl hover:backdrop-blur-md",
         className,
       )}
     >
@@ -51,6 +57,7 @@ export function FloatingNav({ className, variant = "floating-bottom" }: Floating
         return (
           <motion.button
             key={item.id}
+            whileHover={reduceMotion ? undefined : { scale: 1.08 }}
             whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             className={cn(
               "relative flex h-10 max-h-[44px] min-h-[40px] min-w-[44px] items-center gap-0 rounded-full px-3 py-2 transition-colors duration-200",

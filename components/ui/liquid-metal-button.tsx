@@ -19,10 +19,15 @@ export function LiquidMetalButton({
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
+  const [reduceMotion, setReduceMotion] = useState(false)
   const shaderRef = useRef<HTMLDivElement>(null)
   const shaderMount = useRef<InstanceType<typeof ShaderMount> | null>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const rippleId = useRef(0)
+
+  useEffect(() => {
+    setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  }, [])
 
   const dimensions = useMemo(() => {
     if (viewMode === "icon") {
@@ -82,6 +87,10 @@ export function LiquidMetalButton({
         shaderRef.current,
         liquidMetalFragmentShader,
         {
+          // near-black violet backdrop + a violet color-burn tint, matching
+          // the site's brand accent instead of the default neutral chrome
+          u_colorBack: [0.043, 0.039, 0.071, 1],
+          u_colorTint: [0.545, 0.361, 0.965, 0.55],
           u_repetition: 4,
           u_softness: 0.5,
           u_shiftRed: 0.3,
@@ -95,7 +104,7 @@ export function LiquidMetalButton({
           u_offsetY: -0.1,
         },
         undefined,
-        0.6,
+        reduceMotion ? 0 : 0.6,
       )
     }
 
@@ -103,21 +112,21 @@ export function LiquidMetalButton({
       shaderMount.current?.dispose()
       shaderMount.current = null
     }
-  }, [])
+  }, [reduceMotion])
 
   const handleMouseEnter = () => {
     setIsHovered(true)
-    shaderMount.current?.setSpeed?.(1)
+    if (!reduceMotion) shaderMount.current?.setSpeed?.(1)
   }
 
   const handleMouseLeave = () => {
     setIsHovered(false)
     setIsPressed(false)
-    shaderMount.current?.setSpeed?.(0.6)
+    if (!reduceMotion) shaderMount.current?.setSpeed?.(0.6)
   }
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (shaderMount.current?.setSpeed) {
+    if (!reduceMotion && shaderMount.current?.setSpeed) {
       shaderMount.current.setSpeed(2.4)
       setTimeout(() => {
         if (isHovered) {
@@ -128,7 +137,7 @@ export function LiquidMetalButton({
       }, 300)
     }
 
-    if (buttonRef.current) {
+    if (buttonRef.current && !reduceMotion) {
       const rect = buttonRef.current.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
@@ -185,7 +194,7 @@ export function LiquidMetalButton({
               <Sparkles
                 size={16}
                 style={{
-                  color: "#666666",
+                  color: "#d8cffc",
                   filter: "drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.5))",
                   transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   transform: "scale(1)",
@@ -196,7 +205,7 @@ export function LiquidMetalButton({
               <span
                 style={{
                   fontSize: "14px",
-                  color: "#666666",
+                  color: "#d8cffc",
                   fontWeight: 400,
                   textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)",
                   transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -229,7 +238,7 @@ export function LiquidMetalButton({
                 height: `${dimensions.innerHeight}px`,
                 margin: "2px",
                 borderRadius: "100px",
-                background: "linear-gradient(180deg, #202020 0%, #000000 100%)",
+                background: "linear-gradient(180deg, #1c1829 0%, #0b0a12 100%)",
                 boxShadow: isPressed
                   ? "inset 0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px 1px 2px rgba(0, 0, 0, 0.3)"
                   : "none",
@@ -259,10 +268,10 @@ export function LiquidMetalButton({
                 width: `${dimensions.width}px`,
                 borderRadius: "100px",
                 boxShadow: isPressed
-                  ? "0px 0px 0px 1px rgba(0, 0, 0, 0.5), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)"
+                  ? "0px 0px 0px 1px rgba(139, 92, 246, 0.55), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)"
                   : isHovered
-                    ? "0px 0px 0px 1px rgba(0, 0, 0, 0.4), 0px 12px 6px 0px rgba(0, 0, 0, 0.05), 0px 8px 5px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2)"
-                    : "0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 36px 14px 0px rgba(0, 0, 0, 0.02), 0px 20px 12px 0px rgba(0, 0, 0, 0.08), 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15)",
+                    ? "0px 0px 0px 1px rgba(167, 139, 250, 0.5), 0px 0px 22px 0px rgba(139, 92, 246, 0.35), 0px 12px 6px 0px rgba(0, 0, 0, 0.05), 0px 8px 5px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2)"
+                    : "0px 0px 0px 1px rgba(139, 92, 246, 0.28), 0px 36px 14px 0px rgba(0, 0, 0, 0.02), 0px 20px 12px 0px rgba(0, 0, 0, 0.08), 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15)",
                 transition:
                   "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease, box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
                 background: "rgb(0 0 0 / 0)",
@@ -322,7 +331,7 @@ export function LiquidMetalButton({
                   height: "20px",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%)",
+                    "radial-gradient(circle, rgba(196, 181, 253, 0.5) 0%, rgba(196, 181, 253, 0) 70%)",
                   pointerEvents: "none",
                   animation: "ripple-animation 0.6s ease-out",
                 }}

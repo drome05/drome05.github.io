@@ -2,8 +2,8 @@ import { Sparkles } from "lucide-react"
 import { GithubIcon } from "@/components/icons/github-icon"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ScrollLink } from "@/components/scroll-link"
 import { HeroBackground } from "@/components/hero/HeroBackground"
+import { HeroPrimaryCta } from "@/components/hero/HeroPrimaryCta"
 
 export function Hero() {
   return (
@@ -30,12 +30,7 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3.5">
-            <ScrollLink
-              id="projects"
-              className={cn(buttonVariants({ size: "lg" }), "rounded-full px-6")}
-            >
-              View Work
-            </ScrollLink>
+            <HeroPrimaryCta />
             <a
               href="mailto:diromerop@gmail.com"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full px-6")}

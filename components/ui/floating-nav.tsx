@@ -17,25 +17,30 @@ const NAV_ITEMS = [
 
 const LABEL_WIDTH = 76
 
-type BottomNavBarProps = {
+type FloatingNavProps = {
   className?: string
-  stickyBottom?: boolean
+  /**
+   * "floating-bottom": self-contained, fixed to the bottom of the viewport (mobile).
+   * "inline": no fixed positioning, sits wherever its parent places it
+   * (desktop, centered inside the top nav bar).
+   */
+  variant?: "floating-bottom" | "inline"
 }
 
-export function BottomNavBar({ className, stickyBottom = true }: BottomNavBarProps) {
+export function FloatingNav({ className, variant = "floating-bottom" }: FloatingNavProps) {
   const activeId = useActiveSection(NAV_ITEMS.map((item) => item.id))
   const reduceMotion = useReducedMotion()
 
   return (
     <motion.nav
-      initial={reduceMotion ? false : { y: 24, opacity: 0 }}
+      initial={reduceMotion ? false : { y: variant === "floating-bottom" ? 24 : -12, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 26 }}
       role="navigation"
       aria-label="Section navigation"
       className={cn(
         "flex h-[52px] items-center space-x-1 rounded-full border border-border bg-card p-2 shadow-xl",
-        stickyBottom && "fixed inset-x-0 bottom-4 z-[90] mx-auto w-fit",
+        variant === "floating-bottom" && "fixed inset-x-0 bottom-4 z-[90] mx-auto w-fit",
         className,
       )}
     >
@@ -96,4 +101,4 @@ export function BottomNavBar({ className, stickyBottom = true }: BottomNavBarPro
   )
 }
 
-export default BottomNavBar
+export default FloatingNav

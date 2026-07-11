@@ -2,15 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 import { GithubIcon } from "@/components/icons/github-icon"
+import { FloatingNav } from "@/components/ui/floating-nav"
 import { cn } from "@/lib/utils"
 import { scrollToId } from "@/lib/scroll-to"
-
-const NAV_LINKS = [
-  { label: "Work", id: "projects" },
-  { label: "Skills", id: "skills" },
-  { label: "Experience", id: "experience" },
-  { label: "Contact", id: "contact" },
-]
 
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -46,37 +40,29 @@ export function Nav() {
           <span className="text-[14.5px] font-semibold text-foreground">Daniel Romero</span>
         </button>
 
-        {/* Section links live in the bottom nav bar on mobile; shown inline here on desktop. */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => scrollToId(link.id)}
-                className="text-[13.5px] text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-          <li>
-            <a
-              href="https://github.com/drome05"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="flex text-muted-foreground transition-colors hover:text-brand-accent"
-            >
-              <GithubIcon className="h-[17px] w-[17px]" />
-            </a>
-          </li>
-        </ul>
+        {/* Section navigation: the floating pill nav, centered in the header on desktop.
+            Below lg, it lives as its own fixed bar at the bottom of the screen instead
+            (see app/page.tsx) — the header just keeps the brand mark and GitHub link. */}
+        <div className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
+          <FloatingNav variant="inline" />
+        </div>
 
         <a
           href="https://github.com/drome05"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="flex text-muted-foreground transition-colors hover:text-brand-accent md:hidden"
+          className="hidden text-muted-foreground transition-colors hover:text-brand-accent lg:flex"
+        >
+          <GithubIcon className="h-[17px] w-[17px]" />
+        </a>
+
+        <a
+          href="https://github.com/drome05"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="flex text-muted-foreground transition-colors hover:text-brand-accent lg:hidden"
         >
           <GithubIcon className="h-[19px] w-[19px]" />
         </a>

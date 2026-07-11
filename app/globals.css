@@ -263,3 +263,53 @@ html {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+
+/* first-paint loader: a small constellation that draws itself in,
+   echoing the hero background and section-icon motif */
+.loader-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.loader-node {
+  opacity: 0;
+  transform-origin: center;
+  transform: scale(0);
+}
+.loader-node-core {
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loader-line {
+    animation: loader-draw 550ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  .loader-line-2 { animation-delay: 90ms; }
+  .loader-line-3 { animation-delay: 180ms; }
+
+  .loader-node {
+    animation: loader-node-in 380ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .loader-node-1 { animation-delay: 480ms; }
+  .loader-node-2 { animation-delay: 560ms; }
+  .loader-node-3 { animation-delay: 640ms; }
+
+  .loader-node-core {
+    animation: loader-core-pulse 1.6s ease-in-out 700ms infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-line { stroke-dashoffset: 0; }
+  .loader-node { opacity: 1; transform: scale(1); }
+}
+
+@keyframes loader-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes loader-node-in {
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes loader-core-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}

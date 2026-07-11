@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, spaceMono } from "./fonts";
+import { Loader } from "@/components/loader";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
       className={`dark ${spaceGrotesk.variable} ${spaceMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Loader />
         {children}
       </body>
     </html>

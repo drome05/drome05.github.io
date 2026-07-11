@@ -1,6 +1,11 @@
+"use client"
+
+import { useRef } from "react"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { Briefcase } from "lucide-react"
-import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
+import { useReveal } from "@/lib/use-reveal"
+import { cn } from "@/lib/utils"
 
 const EXPERIENCE = [
   {
@@ -48,33 +53,73 @@ const EXPERIENCE = [
   },
 ]
 
+function TimelineItem({ job }: { job: (typeof EXPERIENCE)[number] }) {
+  const { ref, isVisible } = useReveal<HTMLDivElement>()
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "relative pl-9 transition-[opacity,transform] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+        isVisible ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0",
+      )}
+    >
+      <span
+        className={cn(
+          "absolute top-1.5 left-0 h-3 w-3 rounded-full border-2 transition-[background-color,border-color,box-shadow] duration-500",
+          isVisible
+            ? "border-brand-accent bg-brand-accent shadow-[0_0_10px_rgba(167,139,250,0.65)]"
+            : "border-border bg-background",
+        )}
+      />
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_auto] md:gap-6">
+        <div>
+          <div className="text-[1.02rem] font-semibold text-foreground">{job.role}</div>
+          <div className="mt-0.5 text-[0.9rem] text-brand-accent">{job.company}</div>
+        </div>
+        <div className="text-left md:text-right">
+          <div className="font-mono text-[11.5px] text-muted-foreground">{job.date}</div>
+          <div className="mt-0.5 text-[11.5px] text-muted-foreground/70">{job.location}</div>
+        </div>
+        <ul className="col-span-full mt-1.5 list-disc space-y-1 pl-4">
+          {job.bullets.map((bullet) => (
+            <li key={bullet} className="text-[0.9rem] leading-[1.75] text-muted-foreground">
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
 export function Experience() {
+  const listRef = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 0.8", "end 0.5"],
+  })
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+
   return (
     <section id="experience" className="py-16 md:py-24">
       <div className="mx-auto max-w-[1180px] px-5 md:px-10">
         <SectionHeading icon={Briefcase} title="Experience" />
 
-        <div>
-          {EXPERIENCE.map((job, i) => (
-            <Reveal key={job.role} delayMs={i * 60}>
-              <div className={i === 0 ? "grid grid-cols-1 gap-2 py-7 md:grid-cols-[1fr_auto] md:gap-6" : "grid grid-cols-1 gap-2 border-t border-border py-7 md:grid-cols-[1fr_auto] md:gap-6"}>
-                <div>
-                  <div className="text-[1.02rem] font-semibold text-foreground">{job.role}</div>
-                  <div className="mt-0.5 text-[0.9rem] text-brand-accent">{job.company}</div>
-                </div>
-                <div className="text-left md:text-right">
-                  <div className="font-mono text-[11.5px] text-muted-foreground">{job.date}</div>
-                  <div className="mt-0.5 text-[11.5px] text-muted-foreground/70">{job.location}</div>
-                </div>
-                <ul className="col-span-full mt-1.5 list-disc space-y-1 pl-4">
-                  {job.bullets.map((bullet) => (
-                    <li key={bullet} className="text-[0.9rem] leading-[1.75] text-muted-foreground">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
+        <div ref={listRef} className="relative flex flex-col gap-8">
+          <div className="absolute top-2 bottom-2 left-[5px] w-px bg-border" aria-hidden="true" />
+          <motion.div
+            className="absolute top-2 left-[5px] w-px origin-top bg-brand-accent"
+            style={{
+              scaleY: reduceMotion ? 1 : lineScale,
+              height: "calc(100% - 16px)",
+            }}
+            aria-hidden="true"
+          />
+
+          {EXPERIENCE.map((job) => (
+            <TimelineItem key={job.role} job={job} />
           ))}
         </div>
       </div>

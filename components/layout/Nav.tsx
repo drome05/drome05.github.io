@@ -9,13 +9,13 @@ export function Nav() {
     <nav className="fixed inset-x-0 top-0 z-[100] flex h-[68px] items-center justify-between px-5 md:px-10">
       <button
         onClick={() => scrollToId("top")}
-        className="flex items-center gap-2.5 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] transition-transform duration-200 motion-safe:hover:scale-105"
+        className="group flex items-center gap-2.5 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] transition-transform duration-200 motion-safe:hover:scale-105"
         aria-label="Scroll to top"
       >
-        <span className="flex h-[30px] w-[30px] items-center justify-center rounded-[10px] border border-brand-accent-line bg-brand-accent-dim font-mono text-xs font-bold text-brand-accent shadow-[0_1px_10px_rgba(0,0,0,0.35)]">
-          DR
+        <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(167,139,250,0.7)] motion-safe:animate-pulse" />
+        <span className="text-[14.5px] font-semibold text-foreground transition-colors group-hover:text-brand-accent">
+          Daniel Romero
         </span>
-        <span className="text-[14.5px] font-semibold text-foreground">Daniel Romero</span>
       </button>
 
       {/* Section navigation: the floating pill nav, centered in the header on desktop.

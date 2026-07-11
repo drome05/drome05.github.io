@@ -1,21 +1,19 @@
+import { FolderGit2 } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
 import { ProjectCard } from "@/components/sections/ProjectCard"
 import { StatBar } from "@/components/sections/StatBar"
 import { Tag, CardTag, StatusBadge, CardLink } from "@/components/sections/project-bits"
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 md:py-24">
+    <section id="projects" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-[1180px] px-5 md:px-10">
-        <Reveal className="mb-11 max-w-[620px]">
-          <h2 className="mb-2.5 text-[1.6rem] font-semibold text-foreground md:text-[2.1rem]">
-            Selected Work
-          </h2>
-          <p className="text-[0.95rem] leading-[1.7] text-muted-foreground">
-            Eight projects spanning computer vision, systems programming, web, and mobile
-            development.
-          </p>
-        </Reveal>
+        <SectionHeading
+          icon={FolderGit2}
+          title="Selected Work"
+          description="Eight projects spanning computer vision, systems programming, web, and mobile development."
+        />
 
         <div className="grid grid-cols-12 gap-4.5">
           <Reveal className="col-span-12 md:col-span-7">
@@ -46,7 +44,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-5">
+          <Reveal className="col-span-12 md:col-span-5" delayMs={80}>
             <ProjectCard texture>
               <CardTag>Systems programming</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">
@@ -85,7 +83,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-4">
+          <Reveal className="col-span-12 md:col-span-4" delayMs={70}>
             <ProjectCard>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">StepQuest</h3>
               <p className="mb-4 text-[0.9rem] leading-[1.65] text-muted-foreground">
@@ -101,7 +99,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-4">
+          <Reveal className="col-span-12 md:col-span-4" delayMs={140}>
             <ProjectCard texture>
               <CardTag>Computer vision</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">
@@ -120,7 +118,7 @@ export function Projects() {
           </Reveal>
 
           <Reveal className="col-span-12 md:col-span-4">
-            <ProjectCard texture>
+            <ProjectCard live>
               <CardTag>
                 Web, client work <StatusBadge status="active" />
               </CardTag>
@@ -138,7 +136,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-4">
+          <Reveal className="col-span-12 md:col-span-4" delayMs={70}>
             <ProjectCard>
               <CardTag>Tooling, Discord bot</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">Q-bert</h3>
@@ -155,7 +153,7 @@ export function Projects() {
             </ProjectCard>
           </Reveal>
 
-          <Reveal className="col-span-12 md:col-span-4">
+          <Reveal className="col-span-12 md:col-span-4" delayMs={140}>
             <ProjectCard>
               <CardTag>Accessibility, NLP</CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">

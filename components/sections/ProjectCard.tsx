@@ -5,10 +5,12 @@ import { cn } from "@/lib/utils"
 
 export function ProjectCard({
   texture,
+  live,
   className,
   children,
 }: {
   texture?: boolean
+  live?: boolean
   className?: string
   children: React.ReactNode
 }) {
@@ -29,6 +31,7 @@ export function ProjectCard({
       className={cn(
         "spotlight-card flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-[border-color,transform] duration-250 hover:-translate-y-0.5 hover:border-brand-accent-line",
         texture && "card-texture",
+        live && "card-live",
         className,
       )}
     >

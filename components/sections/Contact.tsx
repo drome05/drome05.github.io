@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, MessageCircle, Phone, MapPin } from "lucide-react"
 import { GithubIcon } from "@/components/icons/github-icon"
 import { Reveal } from "@/components/reveal"
 import { buttonVariants } from "@/components/ui/button"
@@ -6,8 +6,18 @@ import { cn } from "@/lib/utils"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-16 text-center md:py-24">
-      <Reveal className="mx-auto max-w-[720px] px-5 md:px-10">
+    <section id="contact" className="relative overflow-hidden py-16 text-center md:py-24">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          backgroundImage:
+            "radial-gradient(60% 55% at 50% 30%, rgba(167, 139, 250, 0.1), transparent)",
+        }}
+      />
+      <Reveal className="relative mx-auto max-w-[720px] px-5 md:px-10">
+        <span className="mx-auto mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-brand-accent-line bg-brand-accent-dim text-brand-accent">
+          <MessageCircle className="h-5 w-5" strokeWidth={1.75} />
+        </span>
         <h2 className="mb-7 text-[1.8rem] leading-[1.2] font-semibold text-foreground md:text-[2.6rem]">
           Let&apos;s build something together.
         </h2>

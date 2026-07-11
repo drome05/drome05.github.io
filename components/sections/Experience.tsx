@@ -1,4 +1,6 @@
+import { Briefcase } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { SectionHeading } from "@/components/section-heading"
 
 const EXPERIENCE = [
   {
@@ -50,15 +52,11 @@ export function Experience() {
   return (
     <section id="experience" className="py-16 md:py-24">
       <div className="mx-auto max-w-[1180px] px-5 md:px-10">
-        <Reveal className="mb-11">
-          <h2 className="text-[1.6rem] font-semibold text-foreground md:text-[2.1rem]">
-            Experience
-          </h2>
-        </Reveal>
+        <SectionHeading icon={Briefcase} title="Experience" />
 
         <div>
           {EXPERIENCE.map((job, i) => (
-            <Reveal key={job.role}>
+            <Reveal key={job.role} delayMs={i * 60}>
               <div className={i === 0 ? "grid grid-cols-1 gap-2 py-7 md:grid-cols-[1fr_auto] md:gap-6" : "grid grid-cols-1 gap-2 border-t border-border py-7 md:grid-cols-[1fr_auto] md:gap-6"}>
                 <div>
                   <div className="text-[1.02rem] font-semibold text-foreground">{job.role}</div>

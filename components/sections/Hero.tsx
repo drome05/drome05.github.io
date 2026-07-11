@@ -1,14 +1,20 @@
+import { Sparkles } from "lucide-react"
 import { GithubIcon } from "@/components/icons/github-icon"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ScrollLink } from "@/components/scroll-link"
-import { HeroShaderPanel } from "@/components/hero/HeroShaderPanel"
+import { HeroBackground } from "@/components/hero/HeroBackground"
 
 export function Hero() {
   return (
-    <section id="top" className="pt-[calc(68px+3rem)] pb-12 md:pt-[calc(68px+4rem)] md:pb-16">
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-8 px-5 md:grid-cols-[1.05fr_0.85fr] md:gap-16 md:px-10">
-        <div>
+    <section
+      id="top"
+      className="relative isolate flex min-h-[88dvh] items-center overflow-hidden pt-[68px]"
+    >
+      <HeroBackground />
+
+      <div className="mx-auto w-full max-w-[1180px] px-5 md:px-10">
+        <div className="max-w-[620px]">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-accent-line bg-brand-accent-dim px-3 py-[5px] font-mono text-[11.5px] tracking-[0.14em] text-brand-accent uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-accent motion-safe:animate-pulse" />
             Systems Engineer at Develcomp
@@ -24,7 +30,10 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3.5">
-            <ScrollLink id="projects" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-6")}>
+            <ScrollLink
+              id="projects"
+              className={cn(buttonVariants({ size: "lg" }), "rounded-full px-6")}
+            >
               View Work
             </ScrollLink>
             <a
@@ -44,9 +53,19 @@ export function Hero() {
             </a>
           </div>
         </div>
-
-        <HeroShaderPanel />
       </div>
+
+      <a
+        href="#contact"
+        className="hero-float-chip absolute right-8 bottom-10 hidden items-center gap-2.5 rounded-full border border-brand-accent-line bg-background/70 py-2 pr-4 pl-2.5 backdrop-blur-md transition-colors hover:border-brand-accent lg:flex"
+      >
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-accent-dim text-brand-accent">
+          <Sparkles className="h-3.5 w-3.5" strokeWidth={1.75} />
+        </span>
+        <span className="font-mono text-xs text-muted-foreground">
+          Available for freelance work
+        </span>
+      </a>
     </section>
   )
 }

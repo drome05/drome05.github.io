@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils"
 
 /**
  * First-paint loader. Rendered visible in the initial (prerendered) HTML so
- * there's no flash of the real page before it mounts, then fades out once
- * the page has had a moment to settle. The constellation motif matches the
- * hero background and section icons rather than being a generic spinner.
+ * there's no flash of the real page before it mounts, then swipes up and
+ * off-screen like a curtain lifting, once the page has had a moment to
+ * settle. The constellation motif matches the hero background and section
+ * icons rather than being a generic spinner.
  */
 export function Loader() {
   const [phase, setPhase] = useState<"visible" | "exiting" | "done">("visible")
@@ -18,7 +19,7 @@ export function Loader() {
     document.body.style.overflow = "hidden"
 
     const minMs = reduceMotion ? 150 : 1050
-    const exitMs = reduceMotion ? 0 : 650
+    const exitMs = reduceMotion ? 0 : 700
 
     const visibleTimer = setTimeout(() => {
       setPhase("exiting")
@@ -40,8 +41,8 @@ export function Loader() {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[200] flex flex-col items-center justify-center gap-6 bg-background transition-opacity duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-        phase === "exiting" ? "pointer-events-none opacity-0" : "opacity-100",
+        "fixed inset-0 z-[200] flex flex-col items-center justify-center gap-6 bg-background transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] will-change-transform motion-reduce:transition-none",
+        phase === "exiting" ? "pointer-events-none -translate-y-full" : "translate-y-0",
       )}
       aria-hidden="true"
     >

@@ -13,13 +13,13 @@ export function About() {
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr] md:items-center md:gap-14">
           <Reveal>
-            <div className="relative mx-auto aspect-[2/3] w-full max-w-[260px] overflow-hidden rounded-2xl border border-border bg-card">
+            <div className="relative mx-auto aspect-square w-full max-w-[260px] overflow-hidden rounded-2xl border border-border bg-card">
               <Image
                 src="/images/daniel-romero.jpg"
                 alt="Daniel Romero"
                 fill
                 sizes="260px"
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>

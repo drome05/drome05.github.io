@@ -3,6 +3,10 @@
 import { GithubIcon } from "@/components/icons/github-icon"
 import { FloatingNav } from "@/components/ui/floating-nav"
 import { scrollToId } from "@/lib/scroll-to"
+import { cn } from "@/lib/utils"
+
+const ICON_LINK_CLASS =
+  "text-muted-foreground drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:text-brand-accent motion-safe:hover:scale-110"
 
 export function Nav() {
   return (
@@ -31,7 +35,7 @@ export function Nav() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
-        className="hidden text-muted-foreground drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:text-brand-accent motion-safe:hover:scale-110 lg:flex"
+        className={cn("hidden lg:flex", ICON_LINK_CLASS)}
       >
         <GithubIcon className="h-[17px] w-[17px]" />
       </a>
@@ -41,7 +45,7 @@ export function Nav() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
-        className="flex text-muted-foreground drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:text-brand-accent motion-safe:hover:scale-110 lg:hidden"
+        className={cn("flex lg:hidden", ICON_LINK_CLASS)}
       >
         <GithubIcon className="h-[19px] w-[19px]" />
       </a>

@@ -1,6 +1,7 @@
 import { Nav } from "@/components/layout/Nav"
 import { Footer } from "@/components/layout/Footer"
 import { Hero } from "@/components/sections/Hero"
+import { About } from "@/components/sections/About"
 import { Projects } from "@/components/sections/Projects"
 import { Skills } from "@/components/sections/Skills"
 import { Experience } from "@/components/sections/Experience"
@@ -17,6 +18,8 @@ export default function Home() {
       <Nav />
       <main className="pb-24 lg:pb-0">
         <Hero />
+        <Divider />
+        <About />
         <Divider />
         <Projects />
         <Divider />

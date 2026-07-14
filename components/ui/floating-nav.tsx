@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useReducedMotion } from "framer-motion"
-import { Home, FolderGit2, Cpu, Briefcase, MessageCircle } from "lucide-react"
+import { Home, User, FolderGit2, Cpu, Briefcase, MessageCircle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { scrollToId } from "@/lib/scroll-to"
@@ -9,6 +9,7 @@ import { useActiveSection } from "@/lib/use-active-section"
 
 const NAV_ITEMS = [
   { label: "Home", icon: Home, id: "top" },
+  { label: "About", icon: User, id: "about" },
   { label: "Work", icon: FolderGit2, id: "projects" },
   { label: "Skills", icon: Cpu, id: "skills" },
   { label: "Experience", icon: Briefcase, id: "experience" },

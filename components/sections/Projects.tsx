@@ -67,17 +67,21 @@ export function Projects() {
           <Reveal className="col-span-12 md:col-span-4">
             <ProjectCard>
               <CardTag>
-                Mobile <StatusBadge status="wip" />
+                Mobile, iOS <StatusBadge status="wip" />
               </CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">OneSelf</h3>
               <p className="mb-4 text-[0.9rem] leading-[1.65] text-muted-foreground">
-                Personal life tracking app with workout logs, mood tracking, habit streaks, and a
-                unified wellness dashboard.
+                Habit, fitness, nutrition, mood, and cycle tracker with an on-device CoreML model
+                that classifies meals from a photo. Fully local: no backend, no accounts.
               </p>
+              <div className="mb-4">
+                <StatBar value={89} label="Food photo classification accuracy" />
+              </div>
               <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
                 <Tag>React Native</Tag>
-                <Tag>Firebase</Tag>
-                <Tag>Node.js</Tag>
+                <Tag>CoreML</Tag>
+                <Tag>HealthKit</Tag>
+                <Tag>SQLite</Tag>
               </div>
               <CardLink href="https://github.com/drome05/OneSelf">View on GitHub</CardLink>
             </ProjectCard>
@@ -137,17 +141,22 @@ export function Projects() {
           </Reveal>
 
           <Reveal className="col-span-12 md:col-span-4" delayMs={70}>
-            <ProjectCard>
-              <CardTag>Tooling, Discord bot</CardTag>
+            <ProjectCard texture>
+              <CardTag>
+                Systems, DevOps <StatusBadge status="active" />
+              </CardTag>
               <h3 className="mb-2 text-[1.15rem] font-semibold text-foreground">Q-bert</h3>
               <p className="mb-4 text-[0.9rem] leading-[1.65] text-muted-foreground">
-                10-man customs Valorant bot that manages competitive lobbies, player queues, and
-                match coordination via Discord.
+                Discord bot restructured into a 15-pod microservices architecture on a self-hosted
+                Kubernetes cluster: economy, casino games, Valorant rank tracking, inhouse matches,
+                and Twitch integration, deployed via ArgoCD GitOps.
               </p>
               <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
                 <Tag>Python</Tag>
+                <Tag>Kubernetes</Tag>
+                <Tag>Docker</Tag>
+                <Tag>ArgoCD</Tag>
                 <Tag>Discord API</Tag>
-                <Tag>Async</Tag>
               </div>
               <CardLink href="https://github.com/drome05/Q-bert">View on GitHub</CardLink>
             </ProjectCard>

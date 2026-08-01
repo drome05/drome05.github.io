@@ -26,6 +26,7 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
       { label: "PyTorch", brand: "pytorch" },
       { label: "TensorFlow", brand: "tensorflow" },
       { label: "OpenCV", brand: "opencv" },
+      { label: "CoreML", brand: "apple" },
       { label: "CNNs", icon: Grid3x3 },
       { label: "Deep Learning", icon: Layers },
       { label: "NLP", icon: MessageSquare },
@@ -47,6 +48,8 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
   {
     title: "Systems",
     items: [
+      { label: "Kubernetes", brand: "kubernetes" },
+      { label: "Docker", brand: "docker" },
       { label: "TCP/IP", icon: Network },
       { label: "POSIX", icon: Terminal },
       { label: "x86-64 ASM", icon: Cpu },

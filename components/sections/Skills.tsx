@@ -46,10 +46,22 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
     ],
   },
   {
-    title: "Systems",
+    title: "Platform / Infra",
     items: [
       { label: "Kubernetes", brand: "kubernetes" },
       { label: "Docker", brand: "docker" },
+      { label: "ArgoCD", brand: "argo" },
+      { label: "Helm", brand: "helm" },
+      { label: "Terraform", brand: "terraform" },
+      { label: "AWS", brand: "amazonaws" },
+      { label: "GitHub Actions", brand: "githubactions" },
+      { label: "Redis", brand: "redis" },
+      { label: "Datadog", brand: "datadog" },
+    ],
+  },
+  {
+    title: "Systems",
+    items: [
       { label: "TCP/IP", icon: Network },
       { label: "POSIX", icon: Terminal },
       { label: "x86-64 ASM", icon: Cpu },
@@ -94,7 +106,7 @@ export function Skills() {
       </Reveal>
 
       <div className="mx-auto max-w-[1180px] px-5 md:px-10">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {SKILL_GROUPS.map((group, i) => (
             <Reveal key={group.title} delayMs={i * 60}>
               <div className="border-t border-border pt-4.5">

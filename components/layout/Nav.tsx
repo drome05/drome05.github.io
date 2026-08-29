@@ -16,7 +16,6 @@ export function Nav() {
         className="group flex items-center gap-2.5 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] transition-transform duration-200 motion-safe:hover:scale-105"
         aria-label="Scroll to top"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(167,139,250,0.7)] motion-safe:animate-pulse" />
         <span className="text-[14.5px] font-semibold text-foreground transition-colors group-hover:text-brand-accent">
           Daniel Romero
         </span>

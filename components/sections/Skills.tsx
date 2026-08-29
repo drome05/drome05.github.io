@@ -4,7 +4,6 @@ import {
   Layers,
   MessageSquare,
   Sparkles,
-  Database,
   Network,
   Terminal,
   HardDrive,
@@ -12,6 +11,7 @@ import {
   ShieldCheck,
   Lock,
   Webhook,
+  Cloud,
 } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { SectionHeading } from "@/components/section-heading"
@@ -40,7 +40,7 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
       { label: "Java", brand: "openjdk" },
       { label: "R", brand: "r" },
       { label: "JavaScript", brand: "javascript" },
-      { label: "SQL", icon: Database },
+      { label: "SQL", brand: "mysql" },
       { label: "PHP", brand: "php" },
     ],
   },
@@ -52,7 +52,7 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
       { label: "ArgoCD", brand: "argo" },
       { label: "Helm", brand: "helm" },
       { label: "Terraform", brand: "terraform" },
-      { label: "AWS", brand: "amazonaws" },
+      { label: "AWS", icon: Cloud },
       { label: "GitHub Actions", brand: "githubactions" },
       { label: "Redis", brand: "redis" },
       { label: "Datadog", brand: "datadog" },

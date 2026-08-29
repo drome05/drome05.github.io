@@ -59,7 +59,6 @@ export function Loader() {
       </svg>
 
       <div className="flex items-center gap-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-accent motion-safe:animate-pulse" />
         <span className="font-mono text-xs tracking-[0.16em] text-muted-foreground uppercase">
           Daniel Romero
         </span>

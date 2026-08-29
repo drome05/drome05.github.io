@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Daniel Romero | ML & Computer Vision Engineer",
   description:
-    "Portfolio of Daniel Romero, a systems engineer and ML/computer vision developer building systems that see, reason, and act.",
+    "Portfolio of Daniel Romero, a platform engineer and ML/computer vision developer building systems that see, reason, and act.",
 };
 
 export default function RootLayout({

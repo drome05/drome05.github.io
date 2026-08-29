@@ -17,7 +17,7 @@ export function Hero() {
         <div className="max-w-[620px]">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-accent-line bg-brand-accent-dim px-3 py-[5px] font-mono text-[11.5px] tracking-[0.14em] text-brand-accent uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-accent motion-safe:animate-pulse" />
-            Systems Engineer at Develcomp
+            Platform Engineer at San Services
           </div>
 
           <h1 className="mb-[1.1rem] text-[2.6rem] leading-[1.05] font-semibold tracking-tight text-foreground md:text-[4.1rem]">
@@ -25,8 +25,9 @@ export function Hero() {
           </h1>
 
           <p className="mb-9 max-w-[480px] text-[1.05rem] leading-[1.75] text-muted-foreground">
-            ML and computer vision engineer building systems that see, reason, and act, from
-            fine-tuned vision models to intelligent mobile apps.
+            Platform engineer building Kubernetes infrastructure and GitOps pipelines, with a
+            background spanning ML and computer vision, from fine-tuned vision models to
+            intelligent mobile apps.
           </p>
 
           <div className="flex flex-wrap items-center gap-3.5">

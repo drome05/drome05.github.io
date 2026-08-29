@@ -9,9 +9,20 @@ import { cn } from "@/lib/utils"
 
 const EXPERIENCE = [
   {
+    role: "Platform Engineer",
+    company: "San Services",
+    date: "Aug 2026 - Present",
+    location: "San Pedro Sula, Honduras",
+    bullets: [
+      "Onboard services onto the Kubernetes catalog, provisioning ArgoCD ApplicationSets and Helm-based environments across dev, staging, and production.",
+      "Build and maintain CI/CD pipelines that build, push, and roll out container images via GitOps.",
+      "Support platform infrastructure for internal teams, including database and Redis provisioning and access management.",
+    ],
+  },
+  {
     role: "Systems Engineer",
     company: "Develcomp",
-    date: "May 2026 - Present",
+    date: "May 2026 - Aug 2026",
     location: "San Pedro Sula, Honduras",
     bullets: [
       "Lead end-to-end network deployments and complex troubleshooting engagements across client sites.",

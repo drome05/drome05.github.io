@@ -11,7 +11,6 @@ import {
   Globe,
   ShieldCheck,
   Lock,
-  Cloud,
   Webhook,
 } from "lucide-react"
 import { Reveal } from "@/components/reveal"
@@ -78,7 +77,6 @@ const SKILL_GROUPS: { title: string; items: TechItem[] }[] = [
       { label: "Node.js", brand: "nodedotjs" },
       { label: "Django", brand: "django" },
       { label: "Firebase", brand: "firebase" },
-      { label: "AWS S3", icon: Cloud },
       { label: "REST APIs", icon: Webhook },
     ],
   },

@@ -39,8 +39,9 @@ export function About() {
               filesystem and shell written from scratch, or a client&apos;s website from design to
               deployment. Bilingual in English and Spanish, I spent two years leading SOAR, our
               campus athletics organization, first as Vice President and then President. These
-              days I&apos;m a Systems Engineer at Develcomp during the day, and I build AI products
-              and client sites on the side.
+              days I&apos;m a Platform Engineer at San Services during the day, building out
+              Kubernetes infrastructure and GitOps pipelines, and I build AI products and client
+              sites on the side.
             </p>
             <a
               href="/resume/daniel-romero-resume.pdf"
